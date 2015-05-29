@@ -35,4 +35,4 @@ make
 make install
 
 cd /app/vendor/postgresql
-tar -zcf - . | /gof3r put -b $S3_BUCKET -k postgresql-$POSTGRESQL_VERSION.tgz
+tar -zcf - . | /gof3r put -b $S3_BUCKET -k postgres/cedar-14/$POSTGRESQL_VERSION.tgz
