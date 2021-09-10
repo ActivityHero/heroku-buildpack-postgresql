@@ -14,7 +14,9 @@ unset GIT_DIR
 # POSTGRESQL_VERSION="9.5.2"
 # S3_BUCKET="musicglue-buildpacks"
 
-POSTGRESQL_VERSION="9.6.2"
+# POSTGRESQL_VERSION="9.6.2"
+POSTGRESQL_VERSION="10.18"
+
 S3_BUCKET="appleton-buildpack-postgresql"
 
 # parse and derive params
@@ -44,7 +46,8 @@ function package_download() {
 
   mkdir -p $location
   # package="https://${S3_BUCKET}.s3.amazonaws.com/postgres/$stack/$version.tgz"
-  package="https://${S3_BUCKET}.s3.amazonaws.com/$stack/$engine-$version.tgz"
+  # package="https://${S3_BUCKET}.s3.amazonaws.com/$stack/$engine-$version.tgz"
+  package="http://ftp.postgresql.org/pub/source/v${POSTGRESQL_VERSION}/postgresql-${POSTGRESQL_VERSION}.tar.gz"
   curl $package -s -o - | tar xzf - -C $location
 }
 
